@@ -1,4 +1,4 @@
-# twitch-emoji :zap:
+# twitch-emoji :zap: <img src="https://travis-ci.org/JamesFrost/twitch-emoji.svg?branch=master">
 Parse Twitch emojis.
 
 Powered by <a href="https://twitchemotes.com">twitchemotes.com</a>.
