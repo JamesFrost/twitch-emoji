@@ -1,6 +1,6 @@
 {
   "name": "twitch-emoji",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Parse Twitch emojis",
   "main": "index.js",
   "scripts": {
