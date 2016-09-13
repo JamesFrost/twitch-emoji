@@ -4,12 +4,16 @@
   "description": "Parse Twitch emojis",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "James Frost <hello@jamesfrost.me> (http://jamesfrost.me)",
   "license": "MIT",
   "devDependencies": {
     "assert": "^1.4.1",
     "mocha": "^3.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/JamesFrost/twitch-emoji"
   }
 }
