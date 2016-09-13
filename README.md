@@ -1,4 +1,4 @@
-# twitch-emoji
+# twitch-emoji :zap:
 Parse Twitch emojis.
 
 Powered by <a href="https://twitchemotes.com">twitchemotes.com</a>.
@@ -7,18 +7,22 @@ Powered by <a href="https://twitchemotes.com">twitchemotes.com</a>.
 npm install --save twitch-emoji
 ```
 
-## Example
-
+## Example Usage
+### Code
 ```js
 const twitchEmoji = require( 'twitch-emoji' );
 
 console.log( twitchEmoji.parse( 'spicey memes Kappa', 'medium' ) );
 
 ```
-
+### Output
 ```html
 spicey memes <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0"/>
 ```
 
-## Usage
+## Interface
 ### ``` .parse( text, emojiSize ) ```
+Emoji size is either small, medium or large.
+
+## License
+MIT
