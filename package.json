@@ -1,11 +1,15 @@
 {
   "name": "twitch-emoji",
   "version": "0.0.1",
-  "description": "",
+  "description": "Parse Twitch emojis",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "James Frost <hello@jamesfrost.me> (http://jamesfrost.me)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^3.0.2"
+  }
 }

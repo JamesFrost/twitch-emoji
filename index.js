@@ -10,7 +10,7 @@ exports.parse = function( text, emojiSize )
 		const imageId = _global.emotes[ thisMatchedEmoji ].image_id;
 		const imageUrl = _global.template[ emojiSize ].replace( '{image_id}', imageId );
 
-		text = text.replace( new RegExp( '\\b' + thisMatchedEmoji + '\\b', 'g' ), '<img src="' + imageUrl + '"/>' );
+		text = text.replace( new RegExp( '\\b' + thisMatchedEmoji + '\\b', 'g' ), '<img class="twitch-emoji" src="' + imageUrl + '"/>' );
 	});
 
 	return text;
