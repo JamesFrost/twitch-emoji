@@ -32,7 +32,10 @@ exports.parse = function( text, options )
 
 const _parseSubscriberEmojiSet = function( text, options, emojis )
 {
-	const terms = emojis.channels[ options.channel ].emotes.map( x => x.code );
+	const terms = emojis.channels[ options.channel ].emotes.map(function( thisEmote )
+	{
+		return thisEmote.code;
+	});
 
 	const matchedEmojis = _searchString( terms, text );
 
