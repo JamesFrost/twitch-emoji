@@ -10,13 +10,15 @@
   "license": "MIT",
   "devDependencies": {
     "assert": "^1.4.1",
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
     "mocha": "^3.0.2"
   },
   "repository": {
     "type": "git",
     "url": "http://github.com/JamesFrost/twitch-emoji"
   },
-    "keywords": [
+  "keywords": [
     "twitch",
     "emoji",
     "emotes"
