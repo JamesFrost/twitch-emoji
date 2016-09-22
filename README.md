@@ -10,10 +10,7 @@ npm install --save twitch-emoji
 ## Example Usage
 ### Code
 ```js
-const twitchEmoji = require( 'twitch-emoji' );
-
 console.log( twitchEmoji.parse( 'spicey memes Kappa' ) );
-
 ```
 ### Output
 ```html
@@ -21,9 +18,13 @@ spicey memes <img class="twitch-emoji twitch-emoji-medium" src="https://static-c
 ```
 
 ## Interface
-### ``` .parse( text, options ) ```
+### ``` .parse( text [, options ]) ```
 
-Emoji size is either small, medium or large.
+#### options.emojiSize
+Small, medium or large. Default is medium.
+
+#### options.channel
+Used to parse channel specific emojis.
 
 ## License
 MIT
