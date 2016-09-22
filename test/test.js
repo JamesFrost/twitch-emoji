@@ -1,4 +1,4 @@
-const _twitchEmoji = require( './../index.js' );
+const _twitchEmoji = require( './../twitchemoji.js' );
 const _assert = require( 'assert' );
 
 describe("Twitch Emoji Parser", function() 
