@@ -11,8 +11,23 @@ module.exports = function( name, callback )
 
 	return new Promise(function( resolve, reject )
 	{
+		if( typeof( Storage ) !== "undefined" ) 
+		{
+			const cache = localStorage.getItem( url );
+
+			if( cache !== null )
+			{
+				callback( undefined, JSON.parse( cache ) );
+				resolve();
+				return;
+			}
+		}
+
 		_request(url, function( err, response, body ) 
 		{
+			if( typeof( Storage ) !== "undefined" )
+				localStorage.setItem( url, body );
+
 			if( err || response.status !== 200 )
 			{
 				callback( err || response );
