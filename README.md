@@ -15,7 +15,7 @@ npm install --save twitch-emoji
 
 ### Browser
 
-For use client side, I recommend using the above cdn. 'Requiring' the module and then using a build task like browserify will add ~4mb to your final file size. This is because the node module has all channel specific emojis preloaded.
+For use client side, I recommend using the above CDN. 'Requiring' the module and then using a build task like browserify will add ~4mb to your final file size. This is because the node module has all channel specific emojis preloaded.
 
 Using the cdn will allow you to dynamically load channel specific emojis, meaining you won't add 4mb of (mostly) redundant JSON to your Javascript.
 
@@ -28,7 +28,7 @@ The browser module has global emojis preloaded.
 Small, medium or large. Default is medium.
 
 ###### options.channel
-Used to parse channel specific emojis. Note that the channel emojis must be added first.
+Used to parse channel specific emojis. Note that the channel emojis must be <a href="https://github.com/JamesFrost/twitch-emoji#add-channelname--callback-">added</a> first.
 
 ```js
 console.log( twitchEmoji.parse( 'spicey memes Kappa' ), { emojiSize : 'medium' } );
@@ -47,6 +47,7 @@ The name of the channel to load the emoji set for.
 
 ###### callback
 Optional. Has a single error argument.
+
 
 Returns a promise.
 
