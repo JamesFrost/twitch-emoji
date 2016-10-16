@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Twitch-Emoji by JamesFrost</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Twitch-Emoji</h1>
+      <h2 class="project-tagline">Parse Twitch emojis :zap:</h2>
+      <a href="https://github.com/JamesFrost/twitch-emoji" class="btn">View on GitHub</a>
+      <a href="https://github.com/JamesFrost/twitch-emoji/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/JamesFrost/twitch-emoji/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="twitch-emoji-zap-" class="anchor" href="#twitch-emoji-zap-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>twitch-emoji <g-emoji alias="zap" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a1.png" ios-version="6.0">⚡️</g-emoji> <img src="https://travis-ci.org/JamesFrost/twitch-emoji.svg?branch=master">
+</h1>
+
+<p>Parse Twitch emojis.</p>
+
+<p>Powered by <a href="https://twitchemotes.com">twitchemotes.com</a>.</p>
+
+<div class="highlight highlight-source-shell"><pre>npm install --save twitch-emoji</pre></div>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>https://unpkg.com/twitch-emoji@^0.2.0/dist/twitchemoji.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a id="browser" class="anchor" href="#browser" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Browser</h3>
+
+<p>For use client side, I recommend using the above CDN. 'Requiring' the module and then using a build task like browserify will add ~4mb to your final file size. This is because the node module has all channel specific emojis preloaded.</p>
+
+<p>Using the cdn will allow you to dynamically load channel specific emojis, meaining you won't add 4mb of (mostly) redundant JSON to your Javascript.</p>
+
+<p>The browser module has global emojis preloaded.</p>
+
+<h4>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API</h4>
+
+<h5>
+<a id="parse-text--options-" class="anchor" href="#parse-text--options-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>.parse( text [, options ])</code>
+</h5>
+
+<h6>
+<a id="optionsemojisize" class="anchor" href="#optionsemojisize" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>options.emojiSize</h6>
+
+<p>Small, medium or large. Default is medium.</p>
+
+<h6>
+<a id="optionschannel" class="anchor" href="#optionschannel" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>options.channel</h6>
+
+<p>Used to parse channel specific emojis. Note that the channel emojis must be <a href="https://github.com/JamesFrost/twitch-emoji#add-channelname--callback-">added</a> first.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-smi">twitchEmoji</span>.<span class="pl-c1">parse</span>( <span class="pl-s"><span class="pl-pds">'</span>spicey memes Kappa<span class="pl-pds">'</span></span> ), { emojiSize <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>medium<span class="pl-pds">'</span></span> } );
+
+<span class="pl-c">// Will produce:</span>
+<span class="pl-c">/*</span>
+<span class="pl-c">spicey memes &lt;img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0"/&gt;</span>
+<span class="pl-c">*/</span></pre></div>
+
+<h5>
+<a id="add-channelname--callback-" class="anchor" href="#add-channelname--callback-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>.add( channelName [, callback] )</code>
+</h5>
+
+<p>Load a channel specific emoji set.</p>
+
+<h6>
+<a id="channelname" class="anchor" href="#channelname" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>channelName</h6>
+
+<p>The name of the channel to load the emoji set for.</p>
+
+<h6>
+<a id="callback" class="anchor" href="#callback" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>callback</h6>
+
+<p>Optional. Has a single error argument.</p>
+
+<p>Returns a promise.</p>
+
+<p>An error will be passed to the callback, and the promise rejected if the channel doesn't have specific emoji sets.</p>
+
+<div class="highlight highlight-source-js"><pre>  <span class="pl-c">// Using the callback</span>
+  <span class="pl-smi">twitchEmoji</span>.<span class="pl-c1">add</span>(<span class="pl-s"><span class="pl-pds">'</span>twoeasy<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>( <span class="pl-smi">err</span> )
+  {
+      <span class="pl-k">if</span>( <span class="pl-k">!</span>err )
+        <span class="pl-c">// Emoji Set Usable</span>
+  });
+
+  <span class="pl-c">// Using a promise</span>
+  <span class="pl-smi">twitchEmoji</span>.<span class="pl-c1">add</span>(<span class="pl-s"><span class="pl-pds">'</span>twoeasy<span class="pl-pds">'</span></span>).<span class="pl-en">then</span>(
+    <span class="pl-k">function</span>( <span class="pl-smi">response</span> )
+    {
+       <span class="pl-c">// Emoji Set Usable</span>
+    },
+    <span class="pl-k">function</span>( <span class="pl-smi">response</span> )
+    {
+      <span class="pl-c">// Emoji set not accessable/doesn't exist</span>
+    }
+  );</pre></div>
+
+<h3>
+<a id="node" class="anchor" href="#node" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Node</h3>
+
+<h4>
+<a id="api-1" class="anchor" href="#api-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>API</h4>
+
+<h5>
+<a id="parse-text--options--1" class="anchor" href="#parse-text--options--1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>.parse( text [, options ])</code>
+</h5>
+
+<h6>
+<a id="optionsemojisize-1" class="anchor" href="#optionsemojisize-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>options.emojiSize</h6>
+
+<p>Small, medium or large. Default is medium.</p>
+
+<h6>
+<a id="optionschannel-1" class="anchor" href="#optionschannel-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>options.channel</h6>
+
+<p>Used to parse channel specific emojis.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">console</span>.<span class="pl-c1">log</span>( <span class="pl-smi">twitchEmoji</span>.<span class="pl-c1">parse</span>( <span class="pl-s"><span class="pl-pds">'</span>spicey memes Kappa<span class="pl-pds">'</span></span> ), { emojiSize <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>medium<span class="pl-pds">'</span></span> } );
+
+<span class="pl-c">// Will produce:</span>
+<span class="pl-c">/*</span>
+<span class="pl-c">spicey memes &lt;img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0"/&gt;</span>
+<span class="pl-c">*/</span></pre></div>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>MIT</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/JamesFrost/twitch-emoji">Twitch-Emoji</a> is maintained by <a href="https://github.com/JamesFrost">JamesFrost</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
