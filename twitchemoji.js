@@ -20,7 +20,7 @@ exports.parse = function( text, options )
 	}, text);
 };
 
-exports.addChannelEmojis = function( channelName, callback )
+exports.add = function( channelName, callback )
 {
 	return _getChannelEmojis(channelName, function( err, result )
 	{

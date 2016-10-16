@@ -157,7 +157,7 @@ describe("Browser Twitch Emoji Parser", function()
 
 		_expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/84164/2.0"/>';
 
-		_twitchEmoji.addChannelEmojis('sunlightdota2');
+		_twitchEmoji.add('sunlightdota2');
 
 		_actual = _twitchEmoji.parse( _text, { channel : 'sunlightdota2', emojiSize : 'medium' } );
 
@@ -170,7 +170,7 @@ describe("Browser Twitch Emoji Parser", function()
 
 		var _expected = 'sunlightJutsu';
 
-		_twitchEmoji.addChannelEmojis('twoeasy', function()
+		_twitchEmoji.add('twoeasy', function()
 		{
 			var _actual = _twitchEmoji.parse( _text, { channel : 'twoeasy', emojiSize : 'medium' } );
 
@@ -184,14 +184,14 @@ describe("Browser Twitch Emoji Parser", function()
 
 		var _expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/84164/2.0"/>';
 
-		_twitchEmoji.addChannelEmojis('sunlightdota2').then(function()
+		_twitchEmoji.add('sunlightdota2').then(function()
 		{
 			var _actual = _twitchEmoji.parse( _text, { channel : 'sunlightdota2', emojiSize : 'medium' } );
 
 			_assert.equal( _actual, _expected );			
 		});
 
-		_twitchEmoji.addChannelEmojis('afakechannel123').then(
+		_twitchEmoji.add('afakechannel123').then(
 			function()
 			{
 				done( new Error("Promise incorrectly resolved") );

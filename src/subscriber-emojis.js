@@ -21,6 +21,8 @@ function wrapper( subscriberSet )
 			{
 				if( thisEmoteObject.code === thisMatchedEmoji )
 					return thisEmoteObject.image_id;
+
+				return carry;
 			}, '');
 
 			const imageUrl = this._subscriber.template[ options.emojiSize ].replace( '{image_id}', imageId );

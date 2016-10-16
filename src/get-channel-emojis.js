@@ -13,12 +13,16 @@ module.exports = function( name, callback )
 	{
 		_request(url, function( err, response, body ) 
 		{
-			callback( err, body );
-
-			if( err )
-				reject();
+			if( err || response.status !== 200 )
+			{
+				callback( err || response );
+				reject( err || response );
+			}
 			else
-				resolve();
+			{
+				callback( undefined, JSON.parse( body ) );
+				resolve( response );
+			}
 		});
 	});
 };
