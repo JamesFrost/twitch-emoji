@@ -1,30 +1,35 @@
-const _subscriber = require( '../json/v2/subscriber.json' );
-const _util = require( './util.js' );
-
-exports.parse = function( text, options )
+function wrapper( subscriberSet )
 {
-	if( typeof options.channel === "undefined" || options.channel === undefined || typeof _subscriber.channels[ options.channel ] === "undefined" )
-		return text;
+	this._util = require( './util.js' );
+	this._subscriber = subscriberSet;
 
-	const terms = _subscriber.channels[ options.channel ].emotes.map(function( thisEmote )
+	this.parse = function( text, options )
 	{
-		return thisEmote.code;
-	});
+		if( typeof options.channel === "undefined" || options.channel === undefined || typeof this._subscriber.channels[ options.channel ] === "undefined" )
+			return text;
 
-	const matchedEmojis = _util.searchString( terms, text );
-
-	matchedEmojis.map(function( thisMatchedEmoji )
-	{
-		const imageId = _subscriber.channels[ options.channel ].emotes.reduce(function( carry, thisEmoteObject )
+		const terms = this._subscriber.channels[ options.channel ].emotes.map(function( thisEmote )
 		{
-			if( thisEmoteObject.code === thisMatchedEmoji )
-				return thisEmoteObject.image_id;
-		}, '');
+			return thisEmote.code;
+		});
 
-		const imageUrl = _subscriber.template[ options.emojiSize ].replace( '{image_id}', imageId );
+		const matchedEmojis = this._util.searchString( terms, text );
 
-		text = text.replace( new RegExp( '\\b' + thisMatchedEmoji + '\\b', 'g' ), _util.buildImgTag( imageUrl, options.emojiSize ) );
-	});
+		matchedEmojis.map(function( thisMatchedEmoji )
+		{
+			const imageId = this._subscriber.channels[ options.channel ].emotes.reduce(function( carry, thisEmoteObject )
+			{
+				if( thisEmoteObject.code === thisMatchedEmoji )
+					return thisEmoteObject.image_id;
+			}, '');
 
-	return text;
+			const imageUrl = this._subscriber.template[ options.emojiSize ].replace( '{image_id}', imageId );
+
+			text = text.replace( new RegExp( '\\b' + thisMatchedEmoji + '\\b', 'g' ), this._util.buildImgTag( imageUrl, options.emojiSize ) );
+		}.bind( this ));
+
+		return text;
+	};
 };
+
+module.exports = wrapper;

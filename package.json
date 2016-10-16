@@ -1,8 +1,8 @@
 {
   "name": "twitch-emoji",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Parse Twitch emojis",
-  "main": "twitch-emoji.js",
+  "main": "twitch-emoji.node.js",
   "scripts": {
     "test": "mocha"
   },
@@ -14,7 +14,9 @@
     "gulp-browserify": "^0.5.1",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^2.0.0",
-    "mocha": "^3.0.2"
+    "jsonfile": "^2.4.0",
+    "mocha": "^3.0.2",
+    "mockery": "^2.0.0"
   },
   "repository": {
     "type": "git",
@@ -24,5 +26,8 @@
     "twitch",
     "emoji",
     "emotes"
-  ]
+  ],
+  "dependencies": {
+    "browser-request": "^0.3.3"
+  }
 }
