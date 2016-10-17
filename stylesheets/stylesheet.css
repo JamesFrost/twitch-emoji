@@ -243,3 +243,8 @@ a {
 @media screen and (max-width: 42em) {
   .site-footer {
     font-size: 0.9rem; } }
+
+.twitch-emoji {
+	height: 2.618em;
+	vertical-align: middle;
+}
