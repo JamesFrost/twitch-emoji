@@ -2,7 +2,7 @@ require('shelljs/global');
 var jsonfile = require('jsonfile');
 var request = require('request');
 var async = require('async');
-var versionNumber = require( __dirname + '/package.json' ).version;
+var package = require( __dirname + '/package.json' );
 
 // exec( 'osascript -e \'tell app "System Events" to display dialog "' +  __dirname + '"\'' );
 
@@ -52,11 +52,27 @@ const _checkSubscriber = function( callback )
 };
 
 const _publishNewUpdate = function()
-{
-	// _exec( 'gulp gen-sub' );
-	// _exec( 'gulp build' );
-	
+{	
 	_exec( 'osascript -e \'tell app "System Events" to display dialog "Updated Twitch Emoji"\'' );
+
+	const splitVersion = package.version.split( '.' );
+
+	splitVersion[2]++;
+
+	const finalVersion = splitVersion.join('.');
+
+	package.version = finalVersion;
+
+	jsonfile.writeFileSync( __dirname + '/package.json', package );
+
+	_exec( 'cd ~/blurrt/twitch-emoji' );
+	_exec( 'git add .' );
+	_exec( 'git add commit -am "Autoupdated emojis"' );
+	_exec( 'git push origin master' );
+	_exec( 'git tag ' + finalVersion );
+	_exec( 'git push origin master --tags' );
+	_exec( 'npm publish' );
+	_exec( 'osascript -e \'tell app "System Events" to display dialog "Twitch Emoji Updated Successfully"\'' );
 };
 
 const _exec = function( command )
