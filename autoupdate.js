@@ -66,6 +66,8 @@ const _publishNewUpdate = function()
 	jsonfile.writeFileSync( __dirname + '/package.json', package );
 
 	_exec( 'cd ~/blurrt/twitch-emoji' );
+	_exec( 'gulp gen-sub' );
+	_exec( 'gulp build' );
 	_exec( 'git add .' );
 	_exec( 'git add commit -am "Autoupdated emojis"' );
 	_exec( 'git push origin master' );
