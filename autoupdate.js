@@ -53,7 +53,7 @@ const _checkSubscriber = function( callback )
 
 const _publishNewUpdate = function()
 {	
-	_exec( 'osascript -e \'tell app "System Events" to display dialog "Updated Twitch Emoji"\'' );
+	_exec( 'osascript -e \'tell app "System Events" to display dialog "New Twitch Emoji Available"\'' );
 
 	const splitVersion = package.version.split( '.' );
 
@@ -65,11 +65,11 @@ const _publishNewUpdate = function()
 
 	jsonfile.writeFileSync( __dirname + '/package.json', package );
 
-	_exec( 'cd ~/blurrt/twitch-emoji' );
-	_exec( 'gulp gen-sub' );
-	_exec( 'gulp build' );
+	_exec( 'cd /Users/james/blurrt/twitch-emoji' );
+	_exec( '/usr/local/bin/gulp gen-sub' );
+	_exec( '/usr/local/bin/gulp build' );
 	_exec( 'git add .' );
-	_exec( 'git add commit -am "Autoupdated emojis"' );
+	_exec( 'git commit -am "Autoupdated emojis"' );
 	_exec( 'git push origin master' );
 	_exec( 'git tag ' + finalVersion );
 	_exec( 'git push origin master --tags' );
@@ -82,6 +82,7 @@ const _exec = function( command )
 	if (exec(command).code !== 0) 
 	{
 	  echo('Error: command failed');
+	  echo(command);
 	  exit(1);
 	}
 };
