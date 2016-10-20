@@ -1,3 +1,4 @@
+require('shelljs/global');
 var package = require( __dirname + '/package.json' );
 var jsonfile = require('jsonfile');
 
