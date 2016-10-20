@@ -55,26 +55,27 @@ const _publishNewUpdate = function()
 {	
 	_exec( 'osascript -e \'tell app "System Events" to display dialog "New Twitch Emoji Available"\'' );
 
-	const splitVersion = package.version.split( '.' );
+	// const splitVersion = package.version.split( '.' );
 
-	splitVersion[2]++;
+	// splitVersion[2]++;
 
-	const finalVersion = splitVersion.join('.');
+	// const finalVersion = splitVersion.join('.');
 
-	package.version = finalVersion;
+	// package.version = finalVersion;
 
-	jsonfile.writeFileSync( __dirname + '/package.json', package );
+	// jsonfile.writeFileSync( __dirname + '/package.json', package );
 
-	_exec( 'cd /Users/james/blurrt/twitch-emoji' );
-	_exec( '/usr/local/bin/gulp gen-sub' );
-	_exec( '/usr/local/bin/gulp build' );
-	_exec( 'git add .' );
-	_exec( 'git commit -am "Autoupdated emojis"' );
-	_exec( 'git push origin master' );
-	_exec( 'git tag ' + finalVersion );
-	_exec( 'git push origin master --tags' );
-	_exec( 'npm publish' );
-	_exec( 'osascript -e \'tell app "System Events" to display dialog "Twitch Emoji Updated Successfully"\'' );
+	// _exec( 'cd /Users/james/blurrt/twitch-emoji' );
+	// _exec( '/usr/local/bin/gulp gen-sub' );
+	// _exec( '/usr/local/bin/gulp build' );
+	// _exec( 'npm test' );
+	// _exec( 'git add .' );
+	// _exec( 'git commit -am "Autoupdated emojis"' );
+	// _exec( 'git push origin master' );
+	// _exec( 'git tag ' + finalVersion );
+	// _exec( 'git push origin master --tags' );
+	// _exec( 'npm publish' );
+	// _exec( 'osascript -e \'tell app "System Events" to display dialog "Twitch Emoji Updated Successfully"\'' );
 };
 
 const _exec = function( command )
