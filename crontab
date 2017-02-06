@@ -1,0 +1,1 @@
+0 */2 * * * PATH=$PATH:/usr/local/bin /usr/local/bin/node /Users/james/blurrt/twitch-emoji/autoupdate.js
