@@ -23,10 +23,11 @@ package.version = finalVersion;
 
 jsonfile.writeFileSync( __dirname + '/package.json', package );
 
-_exec( 'cd /Users/james/blurrt/twitch-emoji' );
-_exec( '/usr/local/bin/gulp gen-sub' );
-_exec( '/usr/local/bin/gulp build' );
-_exec( 'npm test' );
+pushd( '/Users/james/blurrt/twitch-emoji' );
+_exec( 'pwd' );
+_exec( 'gulp --gulpfile /Users/james/blurrt/twitch-emoji/gulpfile.js gen-sub' );
+_exec( 'gulp --gulpfile /Users/james/blurrt/twitch-emoji/gulpfile.js build' );
+_exec( 'mocha /Users/james/blurrt/twitch-emoji/test' );
 _exec( 'git add .' );
 _exec( 'git commit -am "Autoupdated emojis"' );
 _exec( 'git push origin master' );

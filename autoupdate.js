@@ -4,10 +4,20 @@ var request = require('request');
 var async = require('async');
 var package = require( __dirname + '/package.json' );
 
-// exec( 'osascript -e \'tell app "System Events" to display dialog "' +  __dirname + '"\'' );
-
 var oldGlobal = jsonfile.readFileSync( __dirname + '/json/v2/global.json' );
 var oldSub = jsonfile.readFileSync( __dirname + '/json/v2/subscriber.json' );
+
+const _exec = function( command )
+{
+	if (exec(command).code !== 0) 
+	{
+	  echo('Error: command failed');
+	  echo(command);
+	  exit(1);
+	}
+};
+
+// _exec( 'osascript -e \'tell app "System Events" to display dialog "Checking emoji..."\'' );
 
 const _checkGlobal = function( callback )
 {
@@ -53,17 +63,8 @@ const _checkSubscriber = function( callback )
 
 const _publishNewUpdate = function()
 {	
-	_exec( 'osascript -e \'tell app "System Events" to display dialog "New Twitch Emoji Available"\'' );
-};
-
-const _exec = function( command )
-{
-	if (exec(command).code !== 0) 
-	{
-	  echo('Error: command failed');
-	  echo(command);
-	  exit(1);
-	}
+	// _exec( 'osascript -e \'tell app "System Events" to display dialog "New Twitch Emoji Available"\'' );
+	require( './autopublish.js' );
 };
 
 async.parallel([
