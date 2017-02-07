@@ -34,4 +34,3 @@ _exec( 'git push origin master' );
 _exec( 'git tag ' + finalVersion );
 _exec( 'git push origin master --tags' );
 _exec( 'npm publish' );
-_exec( 'osascript -e \'tell app "System Events" to display dialog "Twitch Emoji Updated Successfully"\'' );
