@@ -25,9 +25,6 @@ module.exports = function( name, callback )
 
 		_request(url, function( err, response, body ) 
 		{
-			if( typeof( Storage ) !== "undefined" )
-				localStorage.setItem( url, body );
-
 			if( err || response.status !== 200 )
 			{
 				callback( err || response );
@@ -35,8 +32,19 @@ module.exports = function( name, callback )
 			}
 			else
 			{
-				callback( undefined, JSON.parse( body ) );
-				resolve( response );
+				try
+				{
+					callback( undefined, JSON.parse( body ) );
+
+					if( typeof( Storage ) !== "undefined" )
+						localStorage.setItem( url, body );
+
+					resolve( response );
+				}
+				catch( err ) // for the edge case where the JSON on the CDN isn't valid
+				{
+					reject( err );
+				}
 			}
 		});
 	});
