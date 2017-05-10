@@ -148,7 +148,7 @@ describe("Browser Twitch Emoji Parser", function()
 
 		var _expected = 'sunlightJutsu';
 
-		var _actual = _twitchEmoji.parse( _text, { channel : 'sunlightdota2', emojiSize : 'medium' } );
+		var _actual = _twitchEmoji.parse( _text, { channel : 'sunlightik', emojiSize : 'medium' } );
 
 		_assert.equal( _actual, _expected );
 
@@ -157,9 +157,9 @@ describe("Browser Twitch Emoji Parser", function()
 
 		_expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/84164/2.0"/>';
 
-		_twitchEmoji.add('sunlightdota2');
+		_twitchEmoji.add('sunlightik');
 
-		_actual = _twitchEmoji.parse( _text, { channel : 'sunlightdota2', emojiSize : 'medium' } );
+		_actual = _twitchEmoji.parse( _text, { channel : 'sunlightik', emojiSize : 'medium' } );
 
 		_assert.equal( _actual, _expected );
     });
@@ -184,9 +184,9 @@ describe("Browser Twitch Emoji Parser", function()
 
 		var _expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/84164/2.0"/>';
 
-		_twitchEmoji.add('sunlightdota2').then(function()
+		_twitchEmoji.add('sunlightik').then(function()
 		{
-			var _actual = _twitchEmoji.parse( _text, { channel : 'sunlightdota2', emojiSize : 'medium' } );
+			var _actual = _twitchEmoji.parse( _text, { channel : 'sunlightik', emojiSize : 'medium' } );
 
 			_assert.equal( _actual, _expected );			
 		});
