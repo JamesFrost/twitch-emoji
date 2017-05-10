@@ -112,7 +112,7 @@ describe("Node Twitch Emoji Parser", function()
 
 		const _expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/84164/2.0"/>';
 
-		const _actual = _twitchEmoji.parse( _text, { channel : 'sunlightdota2', emojiSize : 'medium' } );
+		const _actual = _twitchEmoji.parse( _text, { channel : 'sunlightik', emojiSize : 'medium' } );
 
 		_assert.equal( _actual, _expected );
     });
