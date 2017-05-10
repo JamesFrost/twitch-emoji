@@ -13,4 +13,4 @@ mkdir twitch-emoji@$CURRENT_VERSION
 cp -R dist twitch-emoji@$CURRENT_VERSION
 
 echo Starting server...
-sudo http-server -p 80 &
+sudo http-server &
