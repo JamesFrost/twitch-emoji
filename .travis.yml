@@ -1,7 +1,7 @@
 language: node_js
-# addons:
-#   hosts:
-#     - unpkg.com
+addons:
+  hosts:
+    - unpkg.com
 node_js:
   - "0.11"
   - "0.12"
