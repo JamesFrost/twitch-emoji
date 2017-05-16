@@ -8,7 +8,7 @@ describe("Node Twitch Emoji Parser", function()
 		const _text = 'Kappa test 4Head Kappa';
 		const _size = 'large';
 
-		const _expected = '<img class="twitch-emoji twitch-emoji-large" src="https://static-cdn.jtvnw.net/emoticons/v1/25/3.0"/> test <img class="twitch-emoji twitch-emoji-large" src="https://static-cdn.jtvnw.net/emoticons/v1/354/3.0"/> <img class="twitch-emoji twitch-emoji-large" src="https://static-cdn.jtvnw.net/emoticons/v1/25/3.0"/>';
+		const _expected = '<img class="twitch-emoji twitch-emoji-large" src="https://static-cdn.jtvnw.net/emoticons/v1/25/3.0" alt="Kappa"> test <img class="twitch-emoji twitch-emoji-large" src="https://static-cdn.jtvnw.net/emoticons/v1/354/3.0" alt="4Head"> <img class="twitch-emoji twitch-emoji-large" src="https://static-cdn.jtvnw.net/emoticons/v1/25/3.0" alt="Kappa">';
 
 		const _actual = _twitchEmoji.parse( _text, { emojiSize : _size } );
 
@@ -20,7 +20,7 @@ describe("Node Twitch Emoji Parser", function()
 		const _text = 'Kappa test 4Head Kappa';
 		const _size = 'medium';
 
-		const _expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0"/> test <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/354/2.0"/> <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0"/>';
+		const _expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0" alt="Kappa"> test <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/354/2.0" alt="4Head"> <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0" alt="Kappa">';
 
 		const _actual = _twitchEmoji.parse( _text, { emojiSize : _size } );
 
@@ -32,7 +32,7 @@ describe("Node Twitch Emoji Parser", function()
 		const _text = 'Kappa test 4Head Kappa';
 		const _size = 'small';
 
-		const _expected = '<img class="twitch-emoji twitch-emoji-small" src="https://static-cdn.jtvnw.net/emoticons/v1/25/1.0"/> test <img class="twitch-emoji twitch-emoji-small" src="https://static-cdn.jtvnw.net/emoticons/v1/354/1.0"/> <img class="twitch-emoji twitch-emoji-small" src="https://static-cdn.jtvnw.net/emoticons/v1/25/1.0"/>';
+		const _expected = '<img class="twitch-emoji twitch-emoji-small" src="https://static-cdn.jtvnw.net/emoticons/v1/25/1.0" alt="Kappa"> test <img class="twitch-emoji twitch-emoji-small" src="https://static-cdn.jtvnw.net/emoticons/v1/354/1.0" alt="4Head"> <img class="twitch-emoji twitch-emoji-small" src="https://static-cdn.jtvnw.net/emoticons/v1/25/1.0" alt="Kappa">';
 
 		const _actual = _twitchEmoji.parse( _text, { emojiSize : _size } );
 
@@ -99,7 +99,7 @@ describe("Node Twitch Emoji Parser", function()
 	{
 		const _text = 'Kappa test 4Head Kappa';
 
-		const _expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0"/> test <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/354/2.0"/> <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0"/>';
+		const _expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0" alt="Kappa"> test <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/354/2.0" alt="4Head"> <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0" alt="Kappa">';
 
 		_assert.equal( _twitchEmoji.parse( _text ), _expected );
 
@@ -110,7 +110,7 @@ describe("Node Twitch Emoji Parser", function()
 	{
 		const _text = 'sunlightJutsu';
 
-		const _expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/84164/2.0"/>';
+		const _expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/84164/2.0" alt="sunlightJutsu">';
 
 		const _actual = _twitchEmoji.parse( _text, { channel : 'sunlightik', emojiSize : 'medium' } );
 

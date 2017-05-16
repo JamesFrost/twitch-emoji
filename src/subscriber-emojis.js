@@ -27,7 +27,7 @@ function wrapper( subscriberSet )
 
 			const imageUrl = this._subscriber.template[ options.emojiSize ].replace( '{image_id}', imageId );
 
-			text = text.replace( new RegExp( '\\b' + thisMatchedEmoji + '\\b', 'g' ), this._util.buildImgTag( imageUrl, options.emojiSize ) );
+			text = text.replace( new RegExp( '\\b' + thisMatchedEmoji + '\\b', 'g' ), this._util.buildImgTag( thisMatchedEmoji, imageUrl, options.emojiSize ) );
 		}.bind( this ));
 
 		return text;

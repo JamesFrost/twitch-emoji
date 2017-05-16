@@ -12,7 +12,7 @@ exports.parse = function( text, options )
 		const imageId = _global.emotes[ thisMatchedEmoji ].image_id;
 		const imageUrl = _global.template[ options.emojiSize ].replace( '{image_id}', imageId );
 
-		text = text.replace( new RegExp( '\\b' + thisMatchedEmoji + '\\b', 'g' ), _util.buildImgTag( imageUrl, options.emojiSize ) );
+		text = text.replace( new RegExp( '\\b' + thisMatchedEmoji + '\\b', 'g' ), _util.buildImgTag( thisMatchedEmoji, imageUrl, options.emojiSize ) );
 	});
 
 	return text;

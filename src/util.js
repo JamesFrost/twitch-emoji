@@ -41,9 +41,9 @@ exports.validateInput = function( text, options )
 		throw "Channel must be a string";
 };
 
-exports.buildImgTag = function( imageUrl, emojiSize )
+exports.buildImgTag = function( alt, imageUrl, emojiSize )
 {
-	return '<img class="twitch-emoji twitch-emoji-' + emojiSize + '" src="' + imageUrl + '"/>';
+	return '<img class="twitch-emoji twitch-emoji-' + emojiSize + '" src="' + imageUrl + '" alt="' + alt + '">';
 };
 
 exports.searchString = function( terms, string )

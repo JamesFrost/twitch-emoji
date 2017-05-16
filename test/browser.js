@@ -44,7 +44,7 @@ describe("Browser Twitch Emoji Parser", function()
 		const _text = 'Kappa test 4Head Kappa';
 		const _size = 'large';
 
-		const _expected = '<img class="twitch-emoji twitch-emoji-large" src="https://static-cdn.jtvnw.net/emoticons/v1/25/3.0"/> test <img class="twitch-emoji twitch-emoji-large" src="https://static-cdn.jtvnw.net/emoticons/v1/354/3.0"/> <img class="twitch-emoji twitch-emoji-large" src="https://static-cdn.jtvnw.net/emoticons/v1/25/3.0"/>';
+		const _expected = '<img class="twitch-emoji twitch-emoji-large" src="https://static-cdn.jtvnw.net/emoticons/v1/25/3.0" alt="Kappa"> test <img class="twitch-emoji twitch-emoji-large" src="https://static-cdn.jtvnw.net/emoticons/v1/354/3.0" alt="4Head"> <img class="twitch-emoji twitch-emoji-large" src="https://static-cdn.jtvnw.net/emoticons/v1/25/3.0" alt="Kappa">';
 
 		const _actual = _twitchEmoji.parse( _text, { emojiSize : _size } );
 
@@ -56,7 +56,7 @@ describe("Browser Twitch Emoji Parser", function()
 		const _text = 'Kappa test 4Head Kappa';
 		const _size = 'medium';
 
-		const _expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0"/> test <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/354/2.0"/> <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0"/>';
+		const _expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0" alt="Kappa"> test <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/354/2.0" alt="4Head"> <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0" alt="Kappa">';
 
 		const _actual = _twitchEmoji.parse( _text, { emojiSize : _size } );
 
@@ -68,7 +68,7 @@ describe("Browser Twitch Emoji Parser", function()
 		const _text = 'Kappa test 4Head Kappa';
 		const _size = 'small';
 
-		const _expected = '<img class="twitch-emoji twitch-emoji-small" src="https://static-cdn.jtvnw.net/emoticons/v1/25/1.0"/> test <img class="twitch-emoji twitch-emoji-small" src="https://static-cdn.jtvnw.net/emoticons/v1/354/1.0"/> <img class="twitch-emoji twitch-emoji-small" src="https://static-cdn.jtvnw.net/emoticons/v1/25/1.0"/>';
+		const _expected = '<img class="twitch-emoji twitch-emoji-small" src="https://static-cdn.jtvnw.net/emoticons/v1/25/1.0" alt="Kappa"> test <img class="twitch-emoji twitch-emoji-small" src="https://static-cdn.jtvnw.net/emoticons/v1/354/1.0" alt="4Head"> <img class="twitch-emoji twitch-emoji-small" src="https://static-cdn.jtvnw.net/emoticons/v1/25/1.0" alt="Kappa">';
 
 		const _actual = _twitchEmoji.parse( _text, { emojiSize : _size } );
 
@@ -135,7 +135,7 @@ describe("Browser Twitch Emoji Parser", function()
 	{
 		const _text = 'Kappa test 4Head Kappa';
 
-		const _expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0"/> test <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/354/2.0"/> <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0"/>';
+		const _expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0" alt="Kappa"> test <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/354/2.0" alt="4Head"> <img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/25/2.0" alt="Kappa">';
 
 		_assert.equal( _twitchEmoji.parse( _text ), _expected );
 
@@ -155,7 +155,7 @@ describe("Browser Twitch Emoji Parser", function()
 
 		_text = 'sunlightJutsu';
 
-		_expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/84164/2.0"/>';
+		_expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/84164/2.0" alt="sunlightJutsu">';
 
 		_twitchEmoji.add('sunlightdota2');
 
@@ -182,7 +182,7 @@ describe("Browser Twitch Emoji Parser", function()
 	{
 		var _text = 'sunlightJutsu';
 
-		var _expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/84164/2.0"/>';
+		var _expected = '<img class="twitch-emoji twitch-emoji-medium" src="https://static-cdn.jtvnw.net/emoticons/v1/84164/2.0" alt="sunlightJutsu">';
 
 		_twitchEmoji.add('sunlightdota2').then(function()
 		{
