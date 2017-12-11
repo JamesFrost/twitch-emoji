@@ -87,7 +87,7 @@ Small, medium or large. Default is medium.
 Used to parse channel specific emojis.
 
 ```js
-console.log( twitchEmoji.parse( 'spicey memes Kappa' ), { emojiSize : 'medium' } );
+console.log( twitchEmoji.parse( 'spicey memes Kappa' , { emojiSize : 'medium' } ) );
 
 // Will produce:
 /*
